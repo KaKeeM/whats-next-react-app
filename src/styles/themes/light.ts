@@ -12,6 +12,8 @@ const lightTheme = {
         success: '#03bb85',
         info: '#3b5998',
         warning: '#ff6961',
+
+        maincolor: '#dda200',
     }
 };
 

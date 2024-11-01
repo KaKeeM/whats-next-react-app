@@ -1,15 +1,13 @@
 import React from "react";
 import { Grid } from './styles';
-import MainHeader from "../MainHeader";
-import Content from "../Content";
-import Aside from "../Aside";
+import LoginAside from "../LoginAside";
 import SigninContent from '../Login';
 
 // FC é functional component (componente funcional)
 const LoginRegisterLayout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     return (
         <Grid>
-            <Aside/>
+            <LoginAside/>
             <SigninContent>
                 {children}
             </SigninContent>
