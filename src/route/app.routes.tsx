@@ -16,17 +16,11 @@ function AppRoutes() {
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/list/:type' element={<List />} />
             </Route>
-            {/* <Route>
-                <Route path='/login' element={<LazyShow><SignIn /></LazyShow>} />
-            </Route> */}
-            <Route element={<LayoutLoginRegister />}>
-                    <Route path='/login' element={<SigninContent />} />
-                    <Route path='/register' element={<RegisterContent />} />
+            <Route element={<LazyShow><LayoutLoginRegister /></LazyShow>}>
+                <Route path='/login' element={<SigninContent />} />
+                <Route path='/register' element={<RegisterContent />} />
             </Route>
-            
-            
         </Routes>
-    
     );
 }
 
