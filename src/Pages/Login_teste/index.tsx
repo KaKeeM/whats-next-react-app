@@ -33,6 +33,8 @@ const SigninContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
       });
   }
 
+  console.log('SigninContent montado');
+
   return (
     <Container>
       <div className="container">

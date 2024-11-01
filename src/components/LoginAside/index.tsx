@@ -25,4 +25,3 @@ const LoginAside: React.FC  = () => {
 }
 
 export default LoginAside;
-
