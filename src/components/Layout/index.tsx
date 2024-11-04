@@ -9,9 +9,9 @@ import AsideLeft from "../AsideLeft";
 const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     return (
         <Grid>
-            <MainHeader />
-            <AsideRight />
+            <MainHeader /> 
             <AsideLeft />
+            <AsideRight />
             <Content>
                 {children}
             </Content>
