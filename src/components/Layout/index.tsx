@@ -2,14 +2,16 @@ import React from "react";
 import { Grid } from './styles';
 import MainHeader from "../MainHeader";
 import Content from "../Content";
-import Aside from "../Aside";
+import AsideRight from "../AsideRight";
+import AsideLeft from "../AsideLeft";
 
 // FC é functional component (componente funcional)
 const Layout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     return (
         <Grid>
             <MainHeader />
-            <Aside />
+            <AsideRight />
+            <AsideLeft />
             <Content>
                 {children}
             </Content>

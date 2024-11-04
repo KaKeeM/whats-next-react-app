@@ -8,7 +8,6 @@ const Aside: React.FC  = () => {
     return (
         <Container>
             <Header>
-                <LogoImg src={Img} alt = "Logo Minha Carteira"/>
                 <Title>WhatsNext?</Title>
             </Header>
 
@@ -20,17 +19,17 @@ const Aside: React.FC  = () => {
 
                 <MenuItemLink href="/list/entry-balance">
                     <MdArrowDownward/>
-                    Perfil
+                    Entrada
                 </MenuItemLink>
 
                 <MenuItemLink href="/list/exit-balance">
                     <MdArrowUpward/>
-                    Saídas
+                    Saida
                 </MenuItemLink>
 
                 <MenuItemLink href="">
                     <MdExitToApp/>
-                    Sair
+                    Perfil
                 </MenuItemLink>
             </MenuContainer>
         </Container>
