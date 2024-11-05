@@ -13,7 +13,6 @@ const lightTheme = {
         info: '#3b5998',
         warning: '#ff6961',
 
-        maincolor: '#dda200',
     }
 };
 

@@ -1,37 +1,37 @@
-import Img from '../../assets/logo.svg'
-import {MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md';
-import {Container, Header, LogoImg, MenuContainer, MenuItemLink} from './styles'
-import React, { useEffect, useState } from 'react';
+import Img from '../../assets/logo.svg';
+import { MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp } from 'react-icons/md';
+import { Container, Header, LogoImg, MenuContainer, MenuItemLink } from './styles';
+import React from 'react';
+import { useAuth } from '../../hooks/auth'; // Importando o hook useAuth
 
-//FC é functional componente : => componente funcional
-const Aside: React.FC  = () => {
+const Aside: React.FC = () => {
+    const { signOut } = useAuth(); // Usando o hook useAuth para obter a função signOut
+
     return (
         <Container>
             <Header>
-                <LogoImg src={Img} alt = "Logo Minha Carteira"/>
+                <LogoImg src={Img} alt="Logo Minha Carteira" />
             </Header>
 
             <MenuContainer>
                 <MenuItemLink href="/dashboard">
-                    <MdDashboard/>
+                    <MdDashboard />
                 </MenuItemLink>
 
                 <MenuItemLink href="/list/entry-balance">
-                    <MdArrowDownward/>
+                    <MdArrowDownward />
                 </MenuItemLink>
 
                 <MenuItemLink href="/list/exit-balance">
-                    <MdArrowUpward/>
-
+                    <MdArrowUpward />
                 </MenuItemLink>
 
-                <MenuItemLink href="">
-                    <MdExitToApp/>
+                <MenuItemLink as="button" onClick={signOut}>
+                    <MdExitToApp />
                 </MenuItemLink>
             </MenuContainer>
         </Container>
-    )
+    );
 }
 
 export default Aside;
-

@@ -1,14 +1,16 @@
 import React from 'react';
 import GlobalStyles from './styles/GlobalStyles';
-import {ThemeProvider} from 'styled-components';
-import lightTheme from './styles/themes/light';
+import { ThemeProvider } from 'styled-components';
 import Routes from './route';
+import { useTheme } from './hooks/theme';
 
-const App: React.FC  = () => {
+const App: React.FC = () => {
+    const { theme } = useTheme();
+
     return (
-        <ThemeProvider theme={lightTheme}>
-            <GlobalStyles/>
-            <Routes/>
+        <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <Routes />
         </ThemeProvider>
     );
 }

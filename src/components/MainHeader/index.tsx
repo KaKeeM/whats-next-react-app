@@ -22,7 +22,7 @@ const MainHeader: React.FC = () => {
 
   return (
     <Container>
-      <Toggle />
+      <Toggle/>
       <Profile>
         <Welcome>Olá, {emoji} </Welcome>
         <UserName>{userName}</UserName>
