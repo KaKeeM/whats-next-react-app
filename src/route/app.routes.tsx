@@ -11,7 +11,6 @@ const AppRoutes: React.FC = () => (
             <Route path='/list/:type' element={<List />} />
         </Routes>
     </Layout>
-  
 )
 
 export default AppRoutes;

@@ -93,7 +93,7 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
             </div>
             <div className="cad">
               <p>
-                Já tem uma conta? <a><NavLink to='/login'>Faça login.</NavLink></a> 
+                Já tem uma conta? <NavLink to='/'>Faça login.</NavLink> 
               </p>
             </div>
           </Form>
