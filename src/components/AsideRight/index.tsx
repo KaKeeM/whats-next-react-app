@@ -1,7 +1,6 @@
-import Img from '../../assets/logo.svg'
-import {MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md';
-import {Container, Header, Title, LogoImg, MenuContainer, MenuItemLink} from './styles'
-import React, { useEffect, useState } from 'react';
+import {Container, Header, Title, MenuContainer, MenuItemLink} from './styles'
+import React from 'react';
+import ListaDocumentos from '../ListaChats';
 
 //FC é functional componente : => componente funcional
 const Aside: React.FC  = () => {
@@ -12,25 +11,7 @@ const Aside: React.FC  = () => {
             </Header>
 
             <MenuContainer>
-                <MenuItemLink href="/dashboard">
-                    <MdDashboard/>
-                    Missões
-                </MenuItemLink>
-
-                <MenuItemLink href="/list/entry-balance">
-                    <MdArrowDownward/>
-                    Entrada
-                </MenuItemLink>
-
-                <MenuItemLink href="/list/exit-balance">
-                    <MdArrowUpward/>
-                    Saida
-                </MenuItemLink>
-
-                <MenuItemLink href="">
-                    <MdExitToApp/>
-                    Perfil
-                </MenuItemLink>
+                <ListaDocumentos/>
             </MenuContainer>
         </Container>
     )

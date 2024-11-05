@@ -5,6 +5,22 @@ import Toggle from '../Toggle';
 import { auth } from '../../firebase';
 import { useTheme } from '../../hooks/theme';
 
+interface Documento {
+  id: string;
+  time: string;
+  name: string;
+  message: string;
+  created_at: {
+    seconds: number;
+    nanoseconds: number;
+  };
+  avatar: string;
+  timestamp: {
+    seconds: number;
+    nanoseconds: number;
+  };
+}
+
 const MainHeader: React.FC = () => {
   const [userName, setUserName] = useState('');
 

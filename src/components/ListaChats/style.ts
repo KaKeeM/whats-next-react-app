@@ -1,48 +1,11 @@
-import styled, { keyframes } from "styled-components";
-
-const moveToRight = keyframes`
-0% {
-  opacity: 0;
-  transform: translate(-200px);
-
-}
-50%{
-  opacity: 3;
-}
-100%{
-
-  transform: translate(0px);
-  opacity: 1;
-}
-
-
-`;
+import styled from 'styled-components'
 
 export const Container = styled.div`
-    grid-area: AS;
-    background-image: radial-gradient(
-      circle at 50% 50%,
-      #ffde45 0,
-      #ffd32f 50%,
-      #ede42f 100%,
-    );
+    grid-area: ASR;
+    background-color: ${props => props.theme.colors.secondary};
+    padding-left: 10px;
     border-right: 2px solid ${props => props.theme.colors.gray};
-    
-    .image {
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    animation: ${moveToRight} 0.5s;
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100%;
-    
-  }
-    `;
+`;
 
 export const Header = styled.header`
     display: flex;
@@ -57,7 +20,7 @@ export const LogoImg = styled.img`
 
 export const Title = styled.h3`
     color: ${props => props.theme.colors.white};
-    margin: 1rem;
+    margin: 10px;
 `;
 
 export const MenuContainer = styled.nav`

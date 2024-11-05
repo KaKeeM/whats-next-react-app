@@ -7,8 +7,6 @@ export const Grid = styled.div`
     grid-template-areas:
     'ASL ASR MH'
     'ASL ASR CT';
-
-    border: 1.2rem solid black;  /* Borda preta */
+    
     box-sizing: border-box;
-
 `;
