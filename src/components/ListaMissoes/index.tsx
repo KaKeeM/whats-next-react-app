@@ -3,7 +3,7 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../../firebase';
 import { Documento } from '../Missoes/types';
 import DocumentoItem from '../Missoes/index';
-import { subTitle } from './style';
+import { SubTitle } from './style';
 const ListaMissoes: React.FC = () => {
   const [documentos, setDocumentos] = useState<Documento[]>([]);
 
@@ -26,7 +26,9 @@ const ListaMissoes: React.FC = () => {
 
   return (
     <div>
-      <h2> Missões </h2>
+      <SubTitle>
+        <h2> Missões </h2>
+      </SubTitle>
 
       <div className="MenuItemLink">
         {documentos.map((doc) => (
