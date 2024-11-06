@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.div`
     grid-area: ASR;
     background-color: ${props => props.theme.colors.secondary};
-    padding-left: 10px;
     border-right: 2px solid ${props => props.theme.colors.gray};
 `;
 

@@ -1,6 +1,6 @@
-import {Container, Header, Title, MenuContainer, MenuItemLink} from './styles'
+import {Container, Header, Title, MenuContainer} from './styles'
 import React from 'react';
-import ListaDocumentos from '../ListaChats';
+import ListaMissoes from '../ListaMissoes';
 
 //FC é functional componente : => componente funcional
 const Aside: React.FC  = () => {
@@ -11,7 +11,7 @@ const Aside: React.FC  = () => {
             </Header>
 
             <MenuContainer>
-                <ListaDocumentos/>
+                <ListaMissoes/>
             </MenuContainer>
         </Container>
     )

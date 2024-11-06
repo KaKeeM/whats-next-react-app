@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot, DocumentData } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../../firebase';
 import { Documento } from '../Missoes/types';
 import DocumentoItem from '../Missoes/index';
-
-const ListaDocumentos: React.FC = () => {
+import { subTitle } from './style';
+const ListaMissoes: React.FC = () => {
   const [documentos, setDocumentos] = useState<Documento[]>([]);
 
   useEffect(() => {
@@ -19,21 +19,23 @@ const ListaDocumentos: React.FC = () => {
           });
           setDocumentos(listaDocs);
         });
-  
+
         return () => unsubscribe();
       }
     }, []);
 
   return (
     <div>
-      <h2>Lista de Documentos</h2>
+      <h2> Missões </h2>
+
       <div className="MenuItemLink">
         {documentos.map((doc) => (
           <DocumentoItem key={doc.id} doc={doc} />
         ))}
       </div>
+      
     </div>
   );
 };
 
-export default ListaDocumentos;
+export default ListaMissoes;
