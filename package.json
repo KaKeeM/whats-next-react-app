@@ -52,7 +52,6 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-private-property-in-object": "^7.21.11",
-    
     "@types/babel__core": "^7.20.5",
     "@types/styled-components": "^5.1.34"
   }
