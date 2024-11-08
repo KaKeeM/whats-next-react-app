@@ -75,6 +75,7 @@ export const Form = styled.div`
   height: 50vh;
   align-items: center;
   margin: auto;
+  color: #ffffff;
 
   .input {
     width: 60%;

@@ -47,6 +47,11 @@ const SigninContent: React.FC = () => {
                                     />
                                 </InputAdornment>
                             }
+                            sx={{
+                                '&:hover': {
+                                  color: '#ffffff',
+                                },
+                            }}
                         />
                         <FilledInput 
                             id="filled-adornment-weight-se"
@@ -65,6 +70,11 @@ const SigninContent: React.FC = () => {
                                     />
                                 </InputAdornment>
                             }
+                            sx={{
+                                '&:hover': {
+                                  color: '#ffffff',
+                                },
+                            }}
                         />
                         <div className="bottom">
                             <Button variant="contained" type="submit" onClick= {onSubmit}className="buttom">

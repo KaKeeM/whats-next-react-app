@@ -61,6 +61,11 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                   />
                 </InputAdornment>
               }
+              sx={{
+                '&:hover': {
+                  color: '#ffffff',
+                },
+              }}
             />
             <FilledInput 
               id="filled-adornment-weight-se"
@@ -73,12 +78,17 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                 <InputAdornment position="end">
                   <SlLock
                     style={{
-                      color: "#dda200",
+                      color: "#ffffff",
                       fontSize: "1.3rem",
                     }}
                   />
                 </InputAdornment>
               }
+              sx={{
+                '&:hover': {
+                  color: '#ffffff',
+                },
+              }}
             />
             <div className="bottom">
               <Button variant="contained" type="submit"onClick={onSubmit} className="buttom">
