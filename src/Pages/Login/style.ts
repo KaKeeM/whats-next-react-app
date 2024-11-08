@@ -21,13 +21,14 @@ const moveToRight = keyframes`
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
+  overflow: hidden; 
   .container {
     display: flex;
     flex-direction: row;
     height: 100vh;
     width: 100%;
   }
-
+  
   .container1 {
     width: 60%;
     background-image: radial-gradient(
@@ -54,7 +55,7 @@ export const Container = styled.div`
     animation: ${moveToRight} 0.5s;
   }
   .container2 {
-    width: 40%;
+    width: 90%;
     display: flex;
     align-items: center;
     margin: auto;
@@ -86,7 +87,7 @@ export const Form = styled.div`
   }
   @media (max-width: 999px) {
     width: 100%;
-    height: 65vh;
+    height: 70vh;
     background-image: radial-gradient(
       circle at 50% 50%,
       #ffde45 0,

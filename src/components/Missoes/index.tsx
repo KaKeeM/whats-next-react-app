@@ -24,7 +24,7 @@ const DocumentoItem: React.FC<DocumentoItemProps> = ({ doc }) => {
         {isValidUrl(doc.avatar) ? (
           <img src={doc.avatar} alt={`${doc.name}'s avatar`} />
         ) : (
-          <img src='https://www.shutterstock.com/image-vector/error-500-page-empty-symbol-260nw-1711106146.jpg'/>
+          <img src='https://www.shutterstock.com/image-vector/error-500-page-empty-symbol-260nw-1711106146.jpg' alt='imagem nao encontrAada'/>
         )}
         </Avatar>
         <Content className='Content'>

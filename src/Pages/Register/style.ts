@@ -54,7 +54,7 @@ export const Container = styled.div`
     animation: ${moveToRight} 0.5s;
   }
   .container2 {
-    width: 40%;
+    width: 90%;
     display: flex;
     align-items: center;
     margin: auto;
