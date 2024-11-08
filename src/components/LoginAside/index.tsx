@@ -1,17 +1,15 @@
-import Img from '../../assets/logo.svg'
-import {MdDashboard, MdArrowDownward, MdArrowUpward, MdExitToApp} from 'react-icons/md';
-import {Container, Header, Title, LogoImg, MenuContainer, MenuItemLink} from './styles'
-import React, { useEffect, useState } from 'react';
+import {Container, Header, Title, } from './styles'
+import React from 'react';
 
 //FC é functional componente : => componente funcional
 const LoginAside: React.FC  = () => {
     return (
         <Container>
-            <Header>
+            <div className="image">
+            <Header className="header">
                 {/* <LogoImg src={Img} alt = "Logo Minha Carteira"/> */}
                 <Title>WhatsNext?</Title>
             </Header>
-            <div className="image">
                     <img
                     src="sigin.png"
                     width={400}
