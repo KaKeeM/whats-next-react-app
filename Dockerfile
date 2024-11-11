@@ -24,7 +24,8 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=false
+RUN yarn install 
+# --frozen-lockfile --production=false
 
 # Copy application code
 COPY . .
