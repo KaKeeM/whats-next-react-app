@@ -10,7 +10,7 @@ LABEL fly_launch_runtime="Node.js"
 WORKDIR /app
 
 # Set production environment
-ENV NODE_ENV="production"
+ENV NODE_ENV="development"
 ARG YARN_VERSION=1.22.21
 RUN npm install -g yarn@$YARN_VERSION --force
 
@@ -24,13 +24,14 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=false
+RUN yarn install 
+# --frozen-lockfile --production=false
 
 # Copy application code
 COPY . .
 
 # Build application
-RUN yarn run build
+RUN yarn run build 
 
 # Remove development dependencies
 RUN yarn install --production=true
