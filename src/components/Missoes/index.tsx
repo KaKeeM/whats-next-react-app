@@ -1,6 +1,7 @@
 import React from 'react';
 import { Documento } from './types';
 import { DocumentoItemContainer, Avatar, Content, Timestamp } from './styled';
+import { useNavigate } from 'react-router-dom';
 
 interface DocumentoItemProps {
   doc: Documento;
@@ -17,7 +18,12 @@ const isValidUrl = (string: string) => {
 const DocumentoItem: React.FC<DocumentoItemProps> = ({ doc }) => {
     const timestamp = doc.timestamp ? new Date(doc.timestamp.seconds * 1000) : null;
     const timeString = timestamp ? timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
+    const navigate = useNavigate();
 
+    const handleNameClick = () => {
+      navigate(`/chats/${doc.id}`);
+    };
+    
     return (
       <DocumentoItemContainer className="documento-item">
         <Avatar className='Avatar'> 
@@ -28,7 +34,7 @@ const DocumentoItem: React.FC<DocumentoItemProps> = ({ doc }) => {
         )}
         </Avatar>
         <Content className='Content'>
-          <h3>{doc.name}</h3>
+          <h3 onClick={handleNameClick} style={{ cursor: 'pointer' }}>{doc.name}</h3>
           <p>{doc.message}</p>
         </Content>
         <Timestamp className='Timestamp'>
