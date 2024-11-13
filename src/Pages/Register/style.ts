@@ -85,6 +85,7 @@ export const Form = styled.div`
     margin-bottom: 1rem;
     animation: ${moveToRight} 0.5s;
   }
+
   @media (max-width: 999px) {
     width: 100%;
     height: 65vh;

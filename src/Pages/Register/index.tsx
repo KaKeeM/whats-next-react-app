@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Container, Form, Logo } from "./style";
 import FilledInput from "@mui/material/FilledInput";
-import { Button, InputAdornment } from "@mui/material";
+import { Button, FormControlLabel, FormLabel, InputAdornment, Radio, RadioGroup } from "@mui/material";
 import { HiOutlineUser } from "react-icons/hi";
 import { SlLock } from "react-icons/sl";
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
+import { doc, setDoc } from "firebase/firestore"
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 
 const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
@@ -13,27 +14,35 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [gender, setGender] = useState('');
 
   const onSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault()
+    e.preventDefault();
+  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          navigate("/login")
-          // ...
-      })
-      .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-          // ..
+      // Criar documento no Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        registerDate: new Date(),
+        name: name,
+        gender: gender,
+        // Adicione outros campos necessários
       });
-
-
-  }
+      
+      // Navegar para a página de login
+      navigate("/");
+      console.log("Usuário registrado e documento criado com sucesso!");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  
+  // Formulário aqui
+  
 
   console.log('REGISTER montado');
 
@@ -48,7 +57,24 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
             <FilledInput
               id="filled-adornment-weight"
               className="input"
-              placeholder="Login"
+              placeholder="Nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              endAdornment={
+                <InputAdornment position="end">
+                  <HiOutlineUser
+                    style={{
+                      color: "#dda200",
+                      fontSize: "1.3rem",
+                    }}
+                  />
+                </InputAdornment>
+              }
+            />
+            <FilledInput
+              id="filled-adornment-weight"
+              className="input"
+              placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               endAdornment={
@@ -61,11 +87,6 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                   />
                 </InputAdornment>
               }
-              sx={{
-                '&:hover': {
-                  color: '#ffffff',
-                },
-              }}
             />
             <FilledInput 
               id="filled-adornment-weight-se"
@@ -84,22 +105,28 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                   />
                 </InputAdornment>
               }
-              sx={{
-                '&:hover': {
-                  color: '#ffffff',
-                },
-              }}
+              
             />
+
+              <FormLabel component="legend" sx={{color: '#768281', textAlign: "left"}}>Gênero</FormLabel>
+                <RadioGroup
+                  row
+                  className="input"
+                  aria-label="gender"
+                  name="gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <FormControlLabel value="F" control={<Radio sx={{ color: '#768281', '&.Mui-checked': { color: '#dda200' } }}/>} label="Feminino" sx={{ color: '#bdc9c8' }} />
+                  <FormControlLabel value="M" control={<Radio sx={{ color: '#768281', '&.Mui-checked': { color: '#dda200' } }} />} label="Masculino" sx={{ color: '#bdc9c8' }}  />
+                  <FormControlLabel value="O" control={<Radio sx={{ color: '#768281', '&.Mui-checked': { color: '#dda200' } }}/>} label="Outro" sx={{ color: '#bdc9c8' }} />
+                </RadioGroup>
+
+
             <div className="bottom">
               <Button variant="contained" type="submit"onClick={onSubmit} className="buttom">
-                Login
+                Registrar
               </Button>
-              <div className="checkbox">
-                <span>
-                  <input type="checkbox" className="input-checkbox" />
-                </span>
-                <p>Lembrar senha.</p>
-              </div>
             </div>
             <div className="cad">
               <p>
