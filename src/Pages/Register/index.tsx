@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { Container, Form, Logo } from "./style";
 import FilledInput from "@mui/material/FilledInput";
-import { Button, FormControlLabel, FormLabel, InputAdornment, Radio, RadioGroup } from "@mui/material";
+import { Button, FormControlLabel, InputAdornment, Radio, RadioGroup } from "@mui/material";
 import { HiOutlineUser } from "react-icons/hi";
 import { SlLock } from "react-icons/sl";
 import { auth, db } from '../../firebase';
