@@ -41,7 +41,7 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
       });
 
       // Navegar para a página de login
-      navigate("/");
+      alert("Usuário registrado com sucesso")
       console.log("Usuário registrado e documento criado com sucesso!");
     } catch (error) {
       setError("Erro ao criar usuário: " + error);
