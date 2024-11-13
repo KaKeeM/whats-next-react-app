@@ -7,7 +7,7 @@ import { HiOutlineUser } from "react-icons/hi";
 import { SlLock } from "react-icons/sl";
 import { auth, db } from '../../firebase';
 import { doc, setDoc } from "firebase/firestore"
-import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+import {  createUserWithEmailAndPassword, updateProfile  } from 'firebase/auth';
 
 const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const navigate = useNavigate();
@@ -16,10 +16,11 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
+  const [date, setDate] = useState('');
+  const [error, setError] = useState('');
 
   const onSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-  
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
@@ -30,14 +31,21 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
         registerDate: new Date(),
         name: name,
         gender: gender,
+        birth_date: date,
         // Adicione outros campos necessários
       });
-      
+
+      // Atualizar o nome de exibição do usuário
+      await updateProfile(userCredential.user, {
+        displayName: name
+      });
+
       // Navegar para a página de login
       navigate("/");
       console.log("Usuário registrado e documento criado com sucesso!");
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      setError("Erro ao criar usuário: " + error);
+      console.error("Erro ao criar usuário:", e);
     }
   };
   
@@ -99,7 +107,7 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                 <InputAdornment position="end">
                   <SlLock
                     style={{
-                      color: "#ffffff",
+                      color: "#dda200",
                       fontSize: "1.3rem",
                     }}
                   />
@@ -107,6 +115,16 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
               }
               
             />
+            <p className="input" style={{ color: '#768281', backgroundColor: "none" }}>Data de nascimento</p>
+             <FilledInput
+                id="filled-adornment-date"
+                className="input"
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                placeholder="Data de Nascimento"
+                sx={{color: '#768281'}}
+              />
 
               <FormLabel component="legend" sx={{color: '#768281', textAlign: "left"}}>Gênero</FormLabel>
                 <RadioGroup

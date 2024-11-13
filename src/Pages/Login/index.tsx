@@ -10,18 +10,20 @@ import { useAuth } from "../../hooks/auth";
 const SigninContent: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [user, setUser] = useState<any>(null); // Estado para armazenar o usuário autenticado
     const { signIn } = useAuth();
 
     function onSubmit (event: { preventDefault: () => void; }){
       event.preventDefault();
       
       try {
-          signIn(email, password);
+          const authenticatedUser = signIn(email, password);
+          setUser(authenticatedUser); 
+          console.log(user.displayName)
       } catch (error) {
+        console.log(error)
       }
   }
-
-    console.log('SigninContent montado');
 
     return (
         <Container>
@@ -47,11 +49,6 @@ const SigninContent: React.FC = () => {
                                     />
                                 </InputAdornment>
                             }
-                            sx={{
-                                '&:hover': {
-                                  color: '#ffffff',
-                                },
-                            }}
                         />
                         <FilledInput 
                             id="filled-adornment-weight-se"
@@ -70,11 +67,6 @@ const SigninContent: React.FC = () => {
                                     />
                                 </InputAdornment>
                             }
-                            sx={{
-                                '&:hover': {
-                                  color: '#ffffff',
-                                },
-                            }}
                         />
                         <div className="bottom">
                             <Button variant="contained" type="submit" onClick= {onSubmit}className="buttom">
@@ -100,3 +92,7 @@ const SigninContent: React.FC = () => {
 };
 
 export default SigninContent;
+function setUser(authenticatedUser: any) {
+    throw new Error("Function not implemented.");
+}
+
