@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Container, Form, Logo } from "./style";
 import FilledInput from "@mui/material/FilledInput";
 import { Button, FormControlLabel, FormLabel, InputAdornment, Radio, RadioGroup } from "@mui/material";
@@ -10,14 +10,12 @@ import { doc, setDoc } from "firebase/firestore"
 import {  createUserWithEmailAndPassword, updateProfile  } from 'firebase/auth';
 
 const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [date, setDate] = useState('');
-  const [error, setError] = useState('');
 
   const onSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -44,8 +42,7 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
       alert("Usuário registrado com sucesso")
       console.log("Usuário registrado e documento criado com sucesso!");
     } catch (error) {
-      setError("Erro ao criar usuário: " + error);
-      console.error("Erro ao criar usuário:", e);
+      console.error("Erro ao criar usuário:", error);
     }
   };
   

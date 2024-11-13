@@ -92,7 +92,4 @@ const SigninContent: React.FC = () => {
 };
 
 export default SigninContent;
-function setUser(authenticatedUser: any) {
-    throw new Error("Function not implemented.");
-}
 
