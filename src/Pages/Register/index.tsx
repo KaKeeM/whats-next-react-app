@@ -80,7 +80,7 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
               id="filled-adornment-weight"
               className="input"
               placeholder="E-mail"
-              value={email}
+              value={email} 
               onChange={(e) => setEmail(e.target.value)}
               endAdornment={
                 <InputAdornment position="end">
@@ -101,14 +101,14 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha"
               endAdornment={
-                <InputAdornment position="end">
-                  <SlLock
-                    style={{
-                      color: "#dda200",
-                      fontSize: "1.3rem",
-                    }}
-                  />
-                </InputAdornment>
+              <InputAdornment position="end">
+                <SlLock
+                  style={{
+                    color: "#dda200",
+                    fontSize: "1.3rem",
+                  }}
+                />
+              </InputAdornment>  
               }
             />
              <FilledInput

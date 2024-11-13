@@ -81,7 +81,7 @@ const SigninContent: React.FC = () => {
                         </div>
                         <div className="cad">
                             <p>
-                                Ainda não tem conta? <NavLink to='/register'>Cadastre-se.</NavLink> 
+                                Ainda não tem uma conta? <NavLink to='/register'>Cadastre-se.</NavLink> 
                             </p>
                         </div>
                     </Form>
