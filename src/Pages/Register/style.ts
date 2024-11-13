@@ -183,6 +183,7 @@ export const Logo = styled.div`
   font-weight: 400;
   color: #dda200;
   margin: auto;
+  margin-bottom: 1rem;
   justify-content: center;
 
   p {

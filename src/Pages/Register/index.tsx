@@ -110,9 +110,7 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                   />
                 </InputAdornment>
               }
-              
             />
-            <p className="input" style={{ color: '#768281', backgroundColor: "none" }}>Data de nascimento</p>
              <FilledInput
                 id="filled-adornment-date"
                 className="input"
@@ -122,8 +120,6 @@ const RegisterContent: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
                 placeholder="Data de Nascimento"
                 sx={{color: '#768281'}}
               />
-
-              <FormLabel component="legend" sx={{color: '#768281', textAlign: "left"}}>Gênero</FormLabel>
                 <RadioGroup
                   row
                   className="input"
