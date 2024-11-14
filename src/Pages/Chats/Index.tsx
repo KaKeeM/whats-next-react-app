@@ -1,21 +1,12 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
-import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 
 import { Container, Content } from './styles';
 import { collection, doc, onSnapshot } from 'firebase/firestore';
 import { Documento } from '../../components/Missoes/types';
 import { auth, db } from '../../firebase';
+import 'react-chat-elements/dist/main.css';
 
-interface IData {
-    id: string;
-    description: string;
-    amountFormatted: string;
-    frequency: string;
-    dateFormatted: string;
-    tagColor: string;
-}
 
 const Chats: React.FC = () => {
     const { type } = useParams<{ type: string }>();
@@ -45,8 +36,11 @@ const Chats: React.FC = () => {
     
 
     return (
+       
+
         <Container>
-            <Content>
+            <Content> 
+
                 {documentos.map(item => (
                   <p>anotação: {item.message}</p>
                 ))}

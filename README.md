@@ -1,4 +1,8 @@
 ```markdown
+
+# anotações 
+https://github.com/mbpictures/react-chat-module/blob/main/example/src/App.tsx
+
 # My React Project
 
 Este é um projeto React configurado com Yarn, styled-components e react-icons.

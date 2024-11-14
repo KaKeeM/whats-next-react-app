@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext, useEffect, ReactNode } from
 import { auth } from '../firebase'; // Importando a configuração do Firebase
 import {  signInWithEmailAndPassword  } from 'firebase/auth';
 
+
 interface IAuthContext {
     logged: boolean;
     signIn(email: string, password: string): void;
@@ -16,7 +17,7 @@ const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [logged, setLogged] = useState<boolean>(false);
-
+    
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setLogged(!!user);
@@ -35,12 +36,15 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
 
     const signOut = async () => {
+        
         try {
             await auth.signOut();
+            
             setLogged(false);
         } catch (error) {
             console.error('Erro ao sair:', error);
         }
+        
     }
 
     return (
